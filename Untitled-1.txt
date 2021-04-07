@@ -1,0 +1,1 @@
+https://api.sandbox.namecheap.com/xml.response?ApiUser=Kemo&ApiKey=a5de53d7cf9a4274a09528c92a6c28d4&UserName=Kemo&Command=/files&ClientIp=68.65.122.158
