@@ -9,6 +9,7 @@ const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const { json } = require('body-parser');
+const e = require('express');
 const app = express();
 
 
@@ -31,8 +32,8 @@ const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/
 
 //Mongo Connection
 const conn = mongoose.createConnection(mongoURI);
-
-
+conn.once('open', () => console.log('MongoDB is Connected!'));
+conn.on('error', (e) => console.log(e));
 
 
 //GFS Init
@@ -169,7 +170,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 });
 
 
-const port = process.env.PORT || 8095;
+const port = process.env.PORT || 80;
 if (port == null || port == "") {
     port = 5008;
 }
