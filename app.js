@@ -157,10 +157,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
     });
 
-    res.sendStatus(200).json({
-        message: "POST Files is Working!"
-
-    });
+    res.sendStatus(200);
+    res.send("POST is working!");
     //json({ file: req.file });
     console.log(res.file);
 });
