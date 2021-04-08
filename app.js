@@ -16,6 +16,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
+app.use(bodyParser.json({ extended: false, limit: '150mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '150mb' }));
 
 
 //Mongo URI
