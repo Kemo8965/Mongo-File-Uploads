@@ -150,7 +150,7 @@ app.get('/image/:filename', (req, res) => {
 //desc Uploads file to Database
 
 app.post('/upload', upload.single('file'), (req, res) => {
-    res.status(200).json({
+    res.sendStatus(200).json({
         file: `${process.env.BASE_URL}${req.file.filename}`,
         Message: 'Successfully Uploaded File!',
         status: 'Success'
@@ -158,7 +158,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
     });
 
     // res.sendStatus(200);
-    res.send("POST is working!");
+    //res.send("POST is working!");
     //json({ file: req.file });
     // console.log(res.file);
 });
