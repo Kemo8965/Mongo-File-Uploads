@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '150mb' }));
 
 //Mongo URI
 
-const mongoURI = process.env.MONGODB_URI;
-// const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/sample_airbnb?retryWrites=true&w=majority';
+// const mongoURI = process.env.MONGODB_URI;
+const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/sample_airbnb?retryWrites=true&w=majority';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
 
 
@@ -169,7 +169,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 });
 
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8095;
 if (port == null || port == "") {
     port = 5008;
 }
