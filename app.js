@@ -148,7 +148,7 @@ app.get('/image/:filename', (req, res) => {
 
 //@route GET/image
 //@desc Display single image
-app.get('/image/:download', (req, res) => {
+app.get('/image/:filename', (req, res) => {
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
         //CHECK IF FILES EXIST
         if (!file || file.length == 0) {
