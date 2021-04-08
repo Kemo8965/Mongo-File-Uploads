@@ -16,7 +16,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.set('view engine', 'ejs');
+
 
 //Mongo URI
 const mongoURI = 'mongodb+srv://dbUser:dbUser8965@cluster0.7ehrv.mongodb.net/FileUploads_DB';
@@ -59,8 +59,8 @@ const upload = multer({ storage });
 //@Route GET,
 //@desc Loads Form
 app.get('/', (req, res) => {
-    gfs.files.find().toArray((err, files) => {
-        if (!files || files.length === 0) {
+    // gfs.files.find().toArray((err, files) => {
+    /*  if (!files || files.length === 0) {
             res.render('index', { files: false });
 
         } else {
@@ -75,6 +75,9 @@ app.get('/', (req, res) => {
         }
     })
     res.render('index');
+    */
+
+    res.send("Server is connected!");
 });
 
 //@route GET/files
@@ -154,7 +157,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
 });
 
 
-const port = 5009;
-
-app.listen(port, () =>
-    console.log(`Server listening on port ${port}`));
+let port = process.env.BASE_URL;
+if (port == null || port == "") {
+    port = 5008;
+}
+app.listen(port);
