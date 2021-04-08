@@ -123,29 +123,6 @@ app.get('/files/:filename', (req, res) => {
     });
 });
 
-//@route GET/image
-//@desc Display single image
-app.get('/image/:filename', (req, res) => {
-    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-        //CHECK IF FILES EXIST
-        if (!file || file.length == 0) {
-            return res.status(404).json({
-                err: 'No file exists !'
-            });
-        }
-
-        //CHECK IF IMAGE EXISTs
-        if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-            //READ OUTPUT TO BROWSER
-            const readstream = gfs.createReadStream(file.filename);
-            readstream.pipe(res);
-        } else {
-            res.status(404).json({
-                err: 'Not an Image!'
-            });
-        }
-    });
-});
 
 //@route GET/image
 //@desc Display single image
@@ -178,7 +155,7 @@ app.get('/image/:filename', (req, res) => {
 app.post('/upload', upload.single('file'), (req, res) => {
     //res.sendStatus(200);
     res.send({
-        file: `${process.env.BASE_URL}${req.file.filename}`,
+        file: `${process.env.BASE_URL}${req.file}`,
         filename: `${req.file.originalname}`,
         Message: 'Successfully Uploaded File!',
         status: 'Success'
