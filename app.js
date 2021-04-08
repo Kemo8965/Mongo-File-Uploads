@@ -148,7 +148,7 @@ app.get('/image/:filename', (req, res) => {
 
 app.post('/upload', upload.single('file'), (req, res) => {
     res.status(200).json({
-        file: `${process.env.BASE_URL}${req.file.filename}`,
+        file: `${process.env.BASE_URL}/${req.file.filename}`,
         Message: 'Successfully Uploaded File!',
         status: 'Success'
 
