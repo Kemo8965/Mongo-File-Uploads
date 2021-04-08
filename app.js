@@ -118,7 +118,7 @@ app.get('/files/:filename', (req, res) => {
         }
 
         //FILES EXIST
-        return res.json(file);
+        res.send(file);
     });
 });
 
@@ -150,7 +150,8 @@ app.get('/image/:filename', (req, res) => {
 //desc Uploads file to Database
 
 app.post('/upload', upload.single('file'), (req, res) => {
-    res.sendStatus(200).json({
+    res.sendStatus(200);
+    res.json({
         file: `${process.env.BASE_URL}${req.file.filename}`,
         Message: 'Successfully Uploaded File!',
         status: 'Success'
