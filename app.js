@@ -97,11 +97,11 @@ app.get('/files', (req, res) => {
         }
 
         //FILES EXIST
-        return res.json(files);
+
 
     });
 
-
+    return res.json(files);
 });
 
 //@route GET/file
