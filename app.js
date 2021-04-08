@@ -103,7 +103,7 @@ app.get('/files', (req, res) => {
 
     });
 
-    return res.json(files);
+    res.send("GET Files is Working!");
 });
 
 //@route GET/file
@@ -157,8 +157,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
     });
 
-    res.status(200).json({
-        file: req.file
+    res.sendStatus(200).json({
+        message: "POST Files is Working!"
 
     });
     //json({ file: req.file });
