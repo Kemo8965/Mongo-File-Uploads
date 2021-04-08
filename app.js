@@ -87,20 +87,20 @@ app.get('/', (req, res) => {
 //@route GET/files
 //@desc Display all files in JSON
 app.get('/files', (req, res) => {
-    //  gfs.files.find().toArray((err, files) => {
-    //CHECK IF FILES EXIST
-    //    if (!files || files.length == 0) {
-    //    return res.status(404).json({
-    //       err: 'No files exist!'
-    //     });
-    //    }
+    gfs.files.find().toArray((err, files) => {
+        //CHECK IF FILES EXIST
+        if (!files || files.length == 0) {
+            return res.status(404).json({
+                err: 'No files exist!'
+            });
+        }
 
-    //FILES EXIST
+        //FILES EXIST
 
 
-    // });
+    });
 
-    return res.json(files);
+    res.send(files);
 });
 
 //@route GET/file
