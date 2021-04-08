@@ -93,17 +93,17 @@ app.get('/files', (req, res) => {
     gfs.files.find().toArray((err, files) => {
         //CHECK IF FILES EXIST
         if (!files || files.length == 0) {
-            return res.status(404).json({
+            return res.sendStatus(404).json({
                 err: 'No files exist!'
             });
         }
 
         //FILES EXIST
-
+        res.send(files);
 
     });
 
-    res.send(files);
+
 });
 
 //@route GET/file
@@ -112,7 +112,7 @@ app.get('/files/:filename', (req, res) => {
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
         //CHECK IF FILES EXIST
         if (!file || file.length == 0) {
-            return res.status(404).json({
+            return res.sendStatus(404).json({
                 err: 'No file exists !'
             });
         }
