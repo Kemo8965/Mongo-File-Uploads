@@ -83,6 +83,9 @@ app.get('/', (req, res) => {
     */
 
     res.send("Server is connected! Sharp.");
+    res.json({
+        Message: "Successfully Uploaded File!"
+    });
 });
 
 //@route GET/files
