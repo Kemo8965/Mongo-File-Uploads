@@ -96,7 +96,7 @@ app.get('/files', (req, res) => {
         }
 
         //FILES EXIST
-        return res.json(files);
+        res.send(files);
 
     });
 });
