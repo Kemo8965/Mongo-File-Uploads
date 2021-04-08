@@ -21,7 +21,7 @@ app.use(methodOverride('_method'));
 //Mongo URI
 
 const mongoURI = process.env.MONGODB_URI;
-// const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/FileUploads_DB?retryWrites=true&w=majority';
+// const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/sample_airbnb?retryWrites=true&w=majority';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
 
 
@@ -100,7 +100,7 @@ app.get('/files', (req, res) => {
 
     });
 
-    res.send(files);
+    return res.json(files);
 });
 
 //@route GET/file
