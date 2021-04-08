@@ -19,8 +19,11 @@ app.use(methodOverride('_method'));
 
 
 //Mongo URI
-const mongoURI = 'mongodb+srv://dbUser:dbUser8965@cluster0.7ehrv.mongodb.net/FileUploads_DB';
+
+const mongoURI = process.env.MONGODB_URI;
+// const mongoURI = 'mongodb+srv://dbUser:dbUser8965@cluster0.7ehrv.mongodb.net/FileUploads_DB';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
+
 
 //Mongo Connection
 const conn = mongoose.createConnection(mongoURI);
@@ -77,7 +80,7 @@ app.get('/', (req, res) => {
     res.render('index');
     */
 
-    res.send("Server is connected!");
+    res.send("Server is connected! Sharp.");
 });
 
 //@route GET/files
