@@ -22,14 +22,12 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '150mb' }));
 
 
 //Mongo URI
-
-// const mongoURI = process.env.MONGODB_URI;
-const mongoURI = 'mongodb+srv://Kemo:Kemo8965@cluster0.x4wr6.mongodb.net/FileUploads_DB';
+const mongoURI = process.env.MONGODB_URI;
+// const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.67keb.mongodb.net/NewFileUploads?retryWrites=true&w=majority';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
 
 
-
-
+// heroku config:set MONGODB_URI="mongodb+srv://dbUser:dbUser1234@garicluster.67keb.mongodb.net/NewFileUploads?retryWrites=true&w=majority"
 
 //Mongo Connection
 const conn = mongoose.createConnection(mongoURI);
