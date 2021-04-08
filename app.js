@@ -119,6 +119,7 @@ app.get('/files/:filename', (req, res) => {
 
         //FILES EXIST
         res.send(file);
+        res.download(file);
     });
 });
 
