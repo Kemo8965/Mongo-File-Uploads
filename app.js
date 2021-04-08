@@ -24,8 +24,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '150mb' }));
 //Mongo URI
 
 // const mongoURI = process.env.MONGODB_URI;
-const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/sample_airbnb?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://Kemo:Kemo8965@cluster0.x4wr6.mongodb.net/FileUploads_DB';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
+
 
 
 
