@@ -21,8 +21,9 @@ app.use(methodOverride('_method'));
 //Mongo URI
 
 const mongoURI = process.env.MONGODB_URI;
-// const mongoURI = 'mongodb+srv://dbUser:dbUser8965@cluster0.7ehrv.mongodb.net/FileUploads_DB';
+// const mongoURI = 'mongodb+srv://dbUser:dbUser1234@garicluster.dhhkq.mongodb.net/FileUploads_DB?retryWrites=true&w=majority';
 // const mongoURI = 'mongodb://localhost:27017/FileUploads_DB';
+
 
 
 //Mongo Connection
