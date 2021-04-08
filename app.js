@@ -157,8 +157,8 @@ app.post('/upload', upload.single('file'), (req, res) => {
 });
 
 
-let port = process.env.BASE_URL;
+const port = process.env.PORT || 80;
 if (port == null || port == "") {
     port = 5008;
 }
-app.listen(port);
+app.listen(port, () => console.log(`Server is listening on port ${port}...`));
