@@ -164,7 +164,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
             filename: `${req.file.originalname}`,
             Message: 'Successfully Uploaded File!',
             status: 'Success!!',
-            filetype: `${file.contentType}`
+            filetype: `${req.file.contentType}`
 
         });
 
@@ -179,13 +179,13 @@ app.post('/upload', upload.single('file'), (req, res) => {
             filename: `${req.file.originalname}`,
             Message: 'Successfully Uploaded File!',
             status: 'Success!!',
-            filetype: `${file.contentType}`
+            filetype: `${req.file.contentType}`
 
         });
 
     } else {
 
-        return res.sendStatus(500).json({
+        return res.status(400).json({
             err: 'Check that required fields are spcified',
             required: 'KEY:file(file type: file), VALUE:select files'
         });
