@@ -155,16 +155,44 @@ app.get('/image/:filename', (req, res) => {
 
 app.post('/upload', upload.single('file'), (req, res) => {
 
+    //FIRST CHECK IF ALL REQUEST PARAMETERS ARE VALID
+
+    //CHECK TO SEE IF FILE IS AN IMAGE
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+        res.send({
+            file: `${process.env.BASE_URL}image/${req.file.filename}`,
+            filename: `${req.file.originalname}`,
+            Message: 'Successfully Uploaded File!',
+            status: 'Success!!',
+            filetype: `${file.contentType}`
+
+        });
 
 
+    }
+
+    // ELSE UPLOAD A FILE
+    else if (file.contentType !== 'image/jpeg' || file.contentType !== 'image/png') {
+
+        res.send({
+            file: `${process.env.BASE_URL}files/${req.file.filename}`,
+            filename: `${req.file.originalname}`,
+            Message: 'Successfully Uploaded File!',
+            status: 'Success!!',
+            filetype: `${file.contentType}`
+
+        });
+
+    } else {
+
+        return res.sendStatus(500).json({
+            err: 'Check that required fields are spcified',
+            required: 'KEY:file(file type: file), VALUE:select files'
+        });
+
+    }
     //res.sendStatus(200);
-    res.send({
-        file: `${process.env.BASE_URL}image/${req.file.filename}`,
-        filename: `${req.file.originalname}`,
-        Message: 'Successfully Uploaded File!',
-        status: 'Success!!'
 
-    });
 
     res.download(req.file);
 
