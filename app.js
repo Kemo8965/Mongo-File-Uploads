@@ -119,7 +119,7 @@ app.get('/files/:filename', (req, res) => {
 
         //FILES EXIST
         res.send(file);
-        res.download(file);
+        // res.download(file);
     });
 });
 
@@ -140,7 +140,6 @@ app.get('/image/:filename', (req, res) => {
             //READ OUTPUT TO BROWSER
             const readstream = gfs.createReadStream(file.filename);
             readstream.pipe(res);
-            res.download(file);
         } else {
             res.status(404).json({
                 err: 'Not an Image!'
@@ -148,6 +147,8 @@ app.get('/image/:filename', (req, res) => {
         }
     });
 });
+
+
 
 //@route POST,
 //desc Uploads file to Database
