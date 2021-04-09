@@ -159,7 +159,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
     //res.sendStatus(200);
     res.send({
-        file: `${process.env.BASE_URL}/image/${req.file.filename}`,
+        file: `${process.env.BASE_URL}image/${req.file.filename}`,
         filename: `${req.file.originalname}`,
         Message: 'Successfully Uploaded File!',
         status: 'Success!!'
